@@ -4,10 +4,14 @@ var Schema = mongoose.Schema;
 var passportLocalMongoose = require('passport-local-mongoose');
 
 var User = new Schema({
-    admin:   {
-        type: Boolean,
-        default: false
-    }
+    roles: [{
+        type: String,
+        required: true
+    }],
+    attributes: [{
+        type: String,
+        required: false
+    }],
 });
 
 User.plugin(passportLocalMongoose);
